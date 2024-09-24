@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  uso_nginx:
+    image: nginx:latest
+    container_name: nginx_proxy_container
+    ports:
+      - "8080:80"
+      - "443:443"
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./index.html:/usr/share/nginx/html/index.html
+      - ./certificados/:/etc/nginx/ssl
+    restart: always
+
+
